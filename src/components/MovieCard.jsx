@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 
 export default function MovieCard() {
@@ -12,7 +12,10 @@ export default function MovieCard() {
                 <h2>IMAGE TITLE</h2>
                 <h4>Description</h4>
             </figcaption>
-        </div >
+            <Link to="/movies/1">
+                <button className="btn btn-primary">Vai al dettaglio</button>
+            </Link>
+        </div>
     )
 
 }
