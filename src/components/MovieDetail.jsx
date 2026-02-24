@@ -20,6 +20,7 @@ export default function MovieDetail() {
     })
 
     return (
+        // CARD FILM 
         <div className="container">
             <div className="card col-6">
                 <figure>
@@ -29,27 +30,18 @@ export default function MovieDetail() {
                     <p>{movie.abstract}</p>
                 </figcaption>
             </div>
+
             <div className="reviews mt-5">
-                <div className="review">
-                    <span>vote:</span>
-                    <p>description</p>
-                </div>
-                <div className="review">
-                    <span>vote:</span>
-                    <p>description</p>
-                </div>
-                <div className="review1">
-                    <span>vote:</span>
-                    <p>description</p>
-                </div>
-                <div className="review1">
-                    <span>vote:</span>
-                    <p>description</p>
-                </div>
-                <div className="review1">
-                    <span>vote:</span>
-                    <p>description</p>
-                </div>
+
+                {movie.reviews.map(review => (
+                    <div key={review.id}>
+                        <h6>{review.name}</h6>
+                        <strong>Vote:</strong><span> {review.vote}</span>
+                        <p>{review.text}</p>
+
+                    </div>
+                ))}
+
             </div>
         </div>
     )
