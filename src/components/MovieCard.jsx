@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom"
 
 
-export default function MovieCard() {
+export default function MovieCard({ movie }) {
 
     return (
         < div className="card border border-3 col-3 border-primary-subtle bg-secondary-subtle" >
             <figure className="my-figure">
-                <img src="/" alt="" />
+                <img src={`${import.meta.env.VITE_ENDPOINT}/imgs/${movie.image}`} alt={movie.title} />
             </figure>
             <figcaption>
-                <h2>IMAGE TITLE</h2>
-                <h4>Description</h4>
+                <h2>{movie.title}</h2>
+                <h4>{movie.abstract}</h4>
             </figcaption>
-            <Link to="/movies/1">
+            <Link to={`movies/${movie.id}`}>
                 <button className="btn btn-primary">Vai al dettaglio</button>
             </Link>
         </div>
