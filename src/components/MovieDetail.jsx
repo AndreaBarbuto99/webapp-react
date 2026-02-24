@@ -1,16 +1,32 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-
+const endpoint = import.meta.env.VITE_ENDPOINT;
 
 export default function MovieDetail() {
+
+    const { id } = useParams();
+    const [movie, setMovie] = useState([])
+
+    useEffect(() => {
+        axios.get(`${endpoint}/movies/${id}`)
+            .then(response => {
+                setMovie(response.data)
+            })
+            .catch(err => {
+                console.error(err, "Non è stato possibile eseguire la richiesta di dettaglio")
+            })
+    })
+
     return (
         <div className="container">
             <div className="card col-6">
                 <figure>
-                    <img src="/" alt="" />
-                    IMMAGINE
+                    <img src={`${import.meta.env.VITE_ENDPOINT}/imgs/${movie.image}`} alt={movie.title} />
                 </figure>
                 <figcaption>
-                    DESCRIZIONE
+                    <p>{movie.abstract}</p>
                 </figcaption>
             </div>
             <div className="reviews mt-5">
