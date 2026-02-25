@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ReviewSection from "./ReviewSection";
 
 const endpoint = import.meta.env.VITE_ENDPOINT;
 
@@ -21,29 +22,21 @@ export default function MovieDetail() {
 
     return (
         // CARD FILM 
-        <div className="container">
-            <div className="card col-6">
-                <figure>
-                    <img src={movie.image} alt={movie.title} />
-                </figure>
-                <figcaption>
-                    <p>{movie.abstract}</p>
-                </figcaption>
+        <>
+            <div className="container">
+                <div className="card col-6">
+                    <figure>
+                        <img src={movie.image} alt={movie.title} />
+                    </figure>
+                    <figcaption>
+                        <p>{movie.abstract}</p>
+                    </figcaption>
+                </div>
             </div>
 
-            <div className="reviews mt-5">
-
-                {movie.reviews ? movie.reviews.map(review => (
-                    <div key={review.id}>
-                        <h6>{review.name}</h6>
-                        <strong>Vote:</strong><span> {review.vote}</span>
-                        <p>{review.text}</p>
-
-                    </div>
-                ))
-                    : <p>RENDERING ERROR</p>}
-
+            <div className="reviews">
+                <ReviewSection key={movie.id} reviews={movie.reviews} />
             </div>
-        </div>
+        </>
     )
 }
