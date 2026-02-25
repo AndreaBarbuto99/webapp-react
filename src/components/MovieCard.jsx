@@ -6,7 +6,7 @@ export default function MovieCard({ movie }) {
     return (
         < div className="card border border-3 col-3 border-primary-subtle bg-secondary-subtle" >
             <figure className="my-figure">
-                <img src={`${import.meta.env.VITE_ENDPOINT}/imgs/${movie.image}`} alt={movie.title} />
+                <img src={movie.image} alt={movie.title} />
             </figure>
             <figcaption>
                 <h2>{movie.title}</h2>
