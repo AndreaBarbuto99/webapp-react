@@ -23,18 +23,18 @@ export default function MovieDetail() {
     return (
         // CARD FILM 
         <>
-            <div className="container">
-                <div className="card col-6">
+            <div className="container d-flex justify-content-center">
+                <div className="card col-6 align-self-start">
                     <figure>
-                        <img src={movie.image} alt={movie.title} />
+                        <img src={movie.image} className="w-100" alt={movie.title} />
                     </figure>
                     <figcaption>
-                        <p>{movie.abstract}</p>
+                        <p className="fs-2">{movie.abstract}</p>
                     </figcaption>
                 </div>
             </div>
 
-            <div className="reviews">
+            <div className="reviews card border-primary ps-4 mt-5">
                 <ReviewSection key={movie.id} reviews={movie.reviews} />
             </div>
         </>

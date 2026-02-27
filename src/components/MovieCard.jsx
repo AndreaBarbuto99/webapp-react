@@ -4,9 +4,9 @@ import { Link } from "react-router-dom"
 export default function MovieCard({ movie }) {
 
     return (
-        < div className="card border border-3 col-3 border-primary-subtle bg-secondary-subtle" >
+        < div className="card border border-3 col-4 border-primary-subtle bg-secondary-subtle" >
             <figure className="my-figure">
-                <img src={movie.image} alt={movie.title} />
+                <img src={movie.image} className="w-100" alt={movie.title} />
             </figure>
             <figcaption>
                 <h2>{movie.title}</h2>
